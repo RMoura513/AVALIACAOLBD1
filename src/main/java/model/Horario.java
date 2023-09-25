@@ -3,8 +3,8 @@ package model;
 public class Horario {
 
 	private int codigo;
-	private int horaInicio;
-	private int horaFim;
+	private String horaInicio;
+	private String horaFim;
 	private int qtdAula;
 
 	public int getCodigo() {
@@ -15,19 +15,19 @@ public class Horario {
 		this.codigo = codigo;
 	}
 
-	public int getHoraInicio() {
+	public String getHoraInicio() {
 		return horaInicio;
 	}
 
-	public void setHoraInicio(int horaInicio) {
+	public void setHoraInicio(String horaInicio) {
 		this.horaInicio = horaInicio;
 	}
 
-	public int getHoraFim() {
+	public String getHoraFim() {
 		return horaFim;
 	}
 
-	public void setHoraFim(int horaFim) {
+	public void setHoraFim(String horaFim) {
 		this.horaFim = horaFim;
 	}
 

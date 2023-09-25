@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Locale;
 
 import model.Aluno;
+import model.Matricula;
 
 public class AlunoDao implements IConsulta<Aluno>, IAlunoDao {
 	
@@ -26,14 +27,16 @@ public class AlunoDao implements IConsulta<Aluno>, IAlunoDao {
 	@Override
 	public Aluno buscar(Aluno al) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
-		String sql = "SELECT RA, CPF, nome, nomeSocial, dataNascimento, tel, emailPes, emailCor, dataConclusaoSeg, "
-				+ "instituicaoConclusaoSeg, pontuacaoVestibular, posicaoVestibular, semestreIngresso, anoIngresso, "
-				+ "semestreLimiteGrad, anoLimiteGrad FROM aluno WHERE RA = ?";
+		String sql = "SELECT RA, cursoCodigo, turno, CPF, nome, nomeSocial, dataNascimento, tel, emailPes, emailCor, dataConclusaoSeg, "
+				+ "instituicaoConclusaoSeg, pontuacaoVestibular, posicaoVestibular, dataIngresso ,semestreAnoIngresso, "
+				+ "semestreAnoLimiteGrad FROM aluno WHERE RA = ?";
 		PreparedStatement ps = c.prepareStatement(sql);
 		ps.setInt(1, al.getRA());
 		ResultSet rs = ps.executeQuery();
 		if (rs.next()) {
 			al.setRA(rs.getInt("RA"));
+			al.setCursoCodigo(rs.getInt("cursoCodigo"));
+			al.setTurno(rs.getString("turno"));
 			al.setCPF(rs.getString("CPF"));
 			al.setNome(rs.getString("nome"));
 			al.setNomeSocial(rs.getString("nomeSocial"));
@@ -45,10 +48,9 @@ public class AlunoDao implements IConsulta<Aluno>, IAlunoDao {
 			al.setInstituicaoConclusaoSeg(rs.getString("instituicaoConclusaoSeg"));
 			al.setPontuacaoVestibular(rs.getFloat("pontuacaoVestibular"));
 			al.setPosicaoVestibular(rs.getInt("posicaoVestibular"));
-			al.setSemestreIngresso(rs.getInt("semestreIngresso"));
-			al.setAnoIngresso(rs.getInt("anoIngresso"));
-			al.setSemestreLimiteGrad(rs.getInt("semestreLimiteGrad"));
-			al.setAnoLimiteGrad(rs.getInt("anoLimiteGrad"));
+			al.setDataIngresso(LocalDate.parse(rs.getString("dataIngresso")));
+			al.setSemestreAnoIngresso(rs.getString("semestreAnoIngresso"));
+			al.setSemestreAnoLimiteGrad(rs.getString("semestreAnoLimiteGrad"));
 		
 		
 		}
@@ -64,14 +66,16 @@ public class AlunoDao implements IConsulta<Aluno>, IAlunoDao {
 	public List<Aluno> listar() throws SQLException, ClassNotFoundException {
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		Connection c = gDao.getConnection();
-		String sql = "SELECT RA, CPF, nome, nomeSocial, dataNascimento, tel, emailPes, emailCor, dataConclusaoSeg, "
-				+ "instituicaoConclusaoSeg, pontuacaoVestibular, posicaoVestibular, semestreIngresso, anoIngresso, "
-				+ "semestreLimiteGrad, anoLimiteGrad FROM aluno";
+		String sql = "SELECT RA, cursoCodigo, turno, CPF, nome, nomeSocial, dataNascimento, tel, emailPes, emailCor, dataConclusaoSeg, "
+				+ "instituicaoConclusaoSeg, pontuacaoVestibular, posicaoVestibular, semestreAnoIngresso, semestreAnoLimiteGrad "
+				+ "FROM aluno";
 		PreparedStatement ps = c.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
 			Aluno al = new Aluno();
 			al.setRA(rs.getInt("RA"));
+			al.setCursoCodigo(rs.getInt("cursoCodigo"));
+			al.setTurno(rs.getString("turno"));
 			al.setCPF(rs.getString("CPF"));
 			al.setNome(rs.getString("nome"));
 			al.setNomeSocial(rs.getString("nomeSocial"));
@@ -83,10 +87,8 @@ public class AlunoDao implements IConsulta<Aluno>, IAlunoDao {
 			al.setInstituicaoConclusaoSeg(rs.getString("instituicaoConclusaoSeg"));
 			al.setPontuacaoVestibular(rs.getFloat("pontuacaoVestibular"));
 			al.setPosicaoVestibular(rs.getInt("posicaoVestibular"));
-			al.setSemestreIngresso(rs.getInt("semestreIngresso"));
-			al.setAnoIngresso(rs.getInt("anoIngresso"));
-			al.setSemestreLimiteGrad(rs.getInt("semestreLimiteGrad"));
-			al.setAnoLimiteGrad(rs.getInt("anoLimiteGrad"));
+			al.setSemestreAnoIngresso(rs.getString("semestreAnoIngresso"));
+			al.setSemestreAnoLimiteGrad(rs.getString("semestreAnoLimiteGrad"));
 			
 			alunos.add(al);
 		}
@@ -101,34 +103,34 @@ public class AlunoDao implements IConsulta<Aluno>, IAlunoDao {
 	@Override
 	public String iudAluno(String acao, Aluno al) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
-		String sql = "{CALL sp_crud_aluno (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) }";
+		String sql = "{CALL sp_crud_aluno (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) }";
 		
 	      DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.US);
 	      String string_data_nasc = al.getDataNascimento().format(dtf);
 	      String string_data_con = al.getDataConclusaoSeg().format(dtf);
+	      String string_data_ing = al.getDataIngresso().format(dtf);
 		
 		CallableStatement cs = c.prepareCall(sql);
 		cs.setString(1, acao);
 		cs.setInt(2, al.getRA());
-		cs.setString(3, al.getCPF());
-		cs.setString(4, al.getNome());
-		cs.setString(5, al.getNomeSocial());
-		cs.setString(6, string_data_nasc);
-		cs.setInt(7, al.getTel());
-		cs.setString(8, al.getEmailPes());
-		cs.setString(9, al.getEmailCor());
-		cs.setString(10, string_data_con);
-		cs.setString(11, al.getInstituicaoConclusaoSeg());
-		cs.setFloat(12, al.getPontuacaoVestibular());
-		cs.setInt(13, al.getPosicaoVestibular());
-		cs.setInt(14, al.getSemestreIngresso());
-		cs.setInt(15, al.getAnoIngresso());
-		cs.setInt(16, al.getSemestreLimiteGrad());
-		cs.setInt(17, al.getAnoLimiteGrad());
-		cs.registerOutParameter(18, Types.VARCHAR);
+		cs.setInt(3, al.getCursoCodigo());
+		cs.setString(4, al.getTurno());
+		cs.setString(5, al.getCPF());
+		cs.setString(6, al.getNome());
+		cs.setString(7, al.getNomeSocial());
+		cs.setString(8, string_data_nasc);
+		cs.setInt(9, al.getTel());
+		cs.setString(10, al.getEmailPes());
+		cs.setString(11, al.getEmailCor());
+		cs.setString(12, string_data_con);
+		cs.setString(13, al.getInstituicaoConclusaoSeg());
+		cs.setFloat(14, al.getPontuacaoVestibular());
+		cs.setInt(15, al.getPosicaoVestibular());
+		cs.setString(16, string_data_ing);
+		cs.registerOutParameter(17, Types.VARCHAR);
 		
 		cs.execute();
-		String saida = cs.getString(18);
+		String saida = cs.getString(17);
 		cs.close();
 		c.close();
 		

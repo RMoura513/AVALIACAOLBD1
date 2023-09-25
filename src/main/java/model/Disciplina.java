@@ -4,7 +4,6 @@ public class Disciplina {
 
 	private int codigo;
 	private int cursoCodigo;
-	private int matriculaCodigo;
 	private int horarioCodigo;
 	private String nome;
 	private int qtdHorasSemanais;
@@ -23,14 +22,6 @@ public class Disciplina {
 
 	public void setCursoCodigo(int cursoCodigo) {
 		this.cursoCodigo = cursoCodigo;
-	}
-
-	public int getMatriculaCodigo() {
-		return matriculaCodigo;
-	}
-
-	public void setMatriculaCodigo(int matriculaCodigo) {
-		this.matriculaCodigo = matriculaCodigo;
 	}
 
 	public int getHorarioCodigo() {
@@ -59,7 +50,7 @@ public class Disciplina {
 
 	@Override
 	public String toString() {
-		return "Disciplina [codigo=" + codigo + ", cursoCodigo=" + cursoCodigo + ", matriculaCodigo=" + matriculaCodigo
+		return "Disciplina [codigo=" + codigo + ", cursoCodigo=" + cursoCodigo 
 				+ ", horarioCodigo=" + horarioCodigo + ", nome=" + nome + ", qtdHorasSemanais=" + qtdHorasSemanais
 				+ "]";
 	}

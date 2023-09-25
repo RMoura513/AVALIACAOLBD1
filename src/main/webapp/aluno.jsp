@@ -35,14 +35,28 @@
 				
 				<tr>
 				<td colspan="3">
+				<label>(RA apenas para consulta):</label></br>
 					<input class="input_data" type="number" id="RA" name="RA" placeholder="RA"
 					 value='<c:out value="${aluno.RA }"></c:out>'>
 					 <input type="submit" id="botao" name="botao" value="Buscar">
+					 <br>
+					 <br>
 				</td>
 			</tr>
 				
 						 
-				
+			<tr>
+				<td colspan="3">
+					<input class="input_data" type="number" id="cursoCodigo" name="cursoCodigo" placeholder="Código do Curso"
+					 value='<c:out value="${aluno.cursoCodigo }"></c:out>'>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<input class="input_data" type="text" id="turno" name="turno" placeholder="Turno"
+					 value='<c:out value="${aluno.turno }"></c:out>'>
+				</td>
+			</tr>
 			<tr>
 				<td colspan="3">
 					<input class="input_data" type="number" id="CPF" name="CPF" placeholder="CPF"
@@ -117,30 +131,10 @@
 			</tr>
 			<tr>
 				<td colspan="3">
-					<input class="input_data" type="number" id="semestreIngresso" min="0" max="2" name="semestreIngresso" 
-					placeholder="Semestre Ingresso"
-					value='<c:out value="${aluno.semestreIngresso }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					<input class="input_data" type="number" id="anoIngresso" min="0" max="2023" name="anoIngresso" 
-					placeholder="ano Ingresso"
-					value='<c:out value="${aluno.anoIngresso }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					<input class="input_data" type="number" id="semestreLimiteGrad" name="semestreLimiteGrad" 
-					placeholder="semestreLimiteGrad"
-					value='<c:out value="${aluno.semestreLimiteGrad }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					<input class="input_data" type="number" id="anoLimiteGrad" name="anoLimiteGrad" 
-					placeholder="anoLimiteGrad"
-					value='<c:out value="${aluno.anoLimiteGrad }"></c:out>'>
+					<label>Data de Ingresso:</label></br>
+					<input class="input_data" type="date" id="dataIngresso" name="dataIngresso" 
+					placeholder="Data de Ingresso"
+					value='<c:out value="${aluno.dataIngresso }"></c:out>'>
 				</td>
 			</tr>
 			<tr>
@@ -178,6 +172,8 @@
 			<thead>
 				<tr>
 					<th>RA</th>
+					<th>CodigoCurso</th>
+					<th>Turno</th>
 					<th>CPF</th>
 					<th>Nome</th>
 					<th>NomeSocial</th>
@@ -189,10 +185,8 @@
 					<th>InstituicaoConclusaoSeg</th>
 					<th>PontuacaoVestibular</th>
 					<th>PosicaoVestibular</th>
-					<th>SemestreIngresso</th>
-					<th>AnoIngresso</th>
-					<th>SemestreLimiteGrad</th>
-					<th>AnoLimiteGrad</th>
+					<th>SemestreAnoIngresso</th>
+					<th>SemestreAnoLimiteGrad</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -200,6 +194,8 @@
 				<c:forEach var="a" items="${alunos }">
 					<tr>
 						<td><c:out value="${a.RA}" /></td>
+						<td><c:out value="${a.cursoCodigo}" /></td>
+						<td><c:out value="${a.turno}" /></td>
 						<td><c:out value="${a.CPF}" /></td>
 						<td><c:out value="${a.nome}" /></td>
 						<td><c:out value="${a.nomeSocial}" /></td>
@@ -211,10 +207,8 @@
 						<td><c:out value="${a.instituicaoConclusaoSeg}" /></td>
 						<td><c:out value="${a.pontuacaoVestibular}" /></td>
 						<td><c:out value="${a.posicaoVestibular}" /></td>
-						<td><c:out value="${a.semestreIngresso}" /></td>
-						<td><c:out value="${a.anoIngresso}" /></td>
-						<td><c:out value="${a.semestreLimiteGrad}" /></td>
-						<td><c:out value="${a.anoLimiteGrad }"></c:out>
+						<td><c:out value="${a.semestreAnoIngresso}" /></td>
+						<td><c:out value="${a.semestreAnoLimiteGrad}" /></td>
 					</tr>
 		
 				</c:forEach>

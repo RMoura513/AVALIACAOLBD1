@@ -5,6 +5,8 @@ import java.time.LocalDate;
 public class Aluno {
 
 	private int RA;
+	private int cursoCodigo;
+	private String turno;
 	private String CPF;
 	private String nome;
 	private String nomeSocial;
@@ -16,25 +18,32 @@ public class Aluno {
 	private String instituicaoConclusaoSeg;
 	private float pontuacaoVestibular;
 	private int posicaoVestibular;
-	private int semestreIngresso;
-	private int anoIngresso;
-	private int semestreLimiteGrad;
-	private int anoLimiteGrad;
+	private LocalDate dataIngresso;
+	private String semestreAnoIngresso;
+	private String semestreAnoLimiteGrad;
 
 	public int getRA() {
 		return RA;
 	}
 
-	public void setRA(int RA) {
-		this.RA = RA;
+	public void setRA(int rA) {
+		RA = rA;
+	}
+
+	public int getCursoCodigo() {
+		return cursoCodigo;
+	}
+
+	public void setCursoCodigo(int cursoCodigo) {
+		this.cursoCodigo = cursoCodigo;
 	}
 
 	public String getCPF() {
 		return CPF;
 	}
 
-	public void setCPF(String CPF) {
-		this.CPF = CPF;
+	public void setCPF(String cPF) {
+		CPF = cPF;
 	}
 
 	public String getNome() {
@@ -117,46 +126,56 @@ public class Aluno {
 		this.posicaoVestibular = posicaoVestibular;
 	}
 
-	public int getSemestreIngresso() {
-		return semestreIngresso;
+	public LocalDate getDataIngresso() {
+		return dataIngresso;
 	}
 
-	public void setSemestreIngresso(int semestreIngresso) {
-		this.semestreIngresso = semestreIngresso;
+	public void setDataIngresso(LocalDate dataIngresso) {
+		this.dataIngresso = dataIngresso;
 	}
 
-	public int getAnoIngresso() {
-		return anoIngresso;
+	public String getSemestreAnoIngresso() {
+		return semestreAnoIngresso;
 	}
 
-	public void setAnoIngresso(int anoIngresso) {
-		this.anoIngresso = anoIngresso;
+	public void setSemestreAnoIngresso(String semestreAnoIngresso) {
+		this.semestreAnoIngresso = semestreAnoIngresso;
 	}
 
-	public int getSemestreLimiteGrad() {
-		return semestreLimiteGrad;
+	public String getSemestreAnoLimiteGrad() {
+		return semestreAnoLimiteGrad;
 	}
 
-	public void setSemestreLimiteGrad(int semestreLimiteGrad) {
-		this.semestreLimiteGrad = semestreLimiteGrad;
+	public void setSemestreAnoLimiteGrad(String semestreAnoLimiteGrad) {
+		this.semestreAnoLimiteGrad = semestreAnoLimiteGrad;
 	}
 
-	public int getAnoLimiteGrad() {
-		return anoLimiteGrad;
+	public String getTurno() {
+		return turno;
 	}
 
-	public void setAnoLimiteGrad(int anoLimiteGrad) {
-		this.anoLimiteGrad = anoLimiteGrad;
+	public void setTurno(String turno) {
+		this.turno = turno;
 	}
 
 	@Override
 	public String toString() {
-		return "Aluno [RA=" + RA + ", CPF=" + CPF + ", nome=" + nome + ", nomeSocial=" + nomeSocial
-				+ ", dataNascimento=" + dataNascimento + ", tel=" + tel + ", emailPes=" + emailPes + ", emailCor="
-				+ emailCor + ", dataConclusaoSeg=" + dataConclusaoSeg + ", instituicaoConclusaoSeg="
-				+ instituicaoConclusaoSeg + ", pontuacaoVestibular=" + pontuacaoVestibular + ", posicaoVestibular="
-				+ posicaoVestibular + ", semestreIngresso=" + semestreIngresso + ", anoIngresso=" + anoIngresso
-				+ ", semestreLimiteGrad=" + semestreLimiteGrad + ", anoLimiteGrad=" + anoLimiteGrad + "]";
+		return "Aluno [RA=" + RA + ", cursoCodigo=" + cursoCodigo + ", turno=" + turno + ", CPF=" + CPF + ", nome="
+				+ nome + ", nomeSocial=" + nomeSocial + ", dataNascimento=" + dataNascimento + ", tel=" + tel
+				+ ", emailPes=" + emailPes + ", emailCor=" + emailCor + ", dataConclusaoSeg=" + dataConclusaoSeg
+				+ ", instituicaoConclusaoSeg=" + instituicaoConclusaoSeg + ", pontuacaoVestibular="
+				+ pontuacaoVestibular + ", posicaoVestibular=" + posicaoVestibular + ", dataIngresso=" + dataIngresso
+				+ ", semestreAnoIngresso=" + semestreAnoIngresso + ", semestreAnoLimiteGrad=" + semestreAnoLimiteGrad
+				+ ", getRA()=" + getRA() + ", getCursoCodigo()=" + getCursoCodigo() + ", getCPF()=" + getCPF()
+				+ ", getNome()=" + getNome() + ", getNomeSocial()=" + getNomeSocial() + ", getDataNascimento()="
+				+ getDataNascimento() + ", getTel()=" + getTel() + ", getEmailPes()=" + getEmailPes()
+				+ ", getEmailCor()=" + getEmailCor() + ", getDataConclusaoSeg()=" + getDataConclusaoSeg()
+				+ ", getInstituicaoConclusaoSeg()=" + getInstituicaoConclusaoSeg() + ", getPontuacaoVestibular()="
+				+ getPontuacaoVestibular() + ", getPosicaoVestibular()=" + getPosicaoVestibular()
+				+ ", getDataIngresso()=" + getDataIngresso() + ", getSemestreAnoIngresso()=" + getSemestreAnoIngresso()
+				+ ", getSemestreAnoLimiteGrad()=" + getSemestreAnoLimiteGrad() + ", getTurno()=" + getTurno()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
-	
+
 }

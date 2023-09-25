@@ -20,37 +20,6 @@
 		</p>
 		<table>
 			<tr>
-				<td colspan="3">
-					<input class="input_data" type="number" id="codigo" name="codigo" placeholder="Codigo"
-					 value='<c:out value="${conteudo.codigo }"></c:out>'>
-				</td>
-  			<td>
-				<input type="submit" id="botao" name="botao" value="Buscar">
-			</td>
-			</tr>
-			<tr>
-				<td colspan="4">
-					<input class="input_data" type="number" id="disciplinaCodigo" name="disciplinaCodigo" 
-					placeholder="Código da Disciplina"
-					 value='<c:out value="${conteudo.disciplinaCodigo }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4">
-					<input class="input_data" type="text" id="descricao" name="descricao" placeholder="Descrição"
-					 value='<c:out value="${conteudo.disciplinaCodigo }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="submit" id="botao" name="botao" value="Cadastrar">
-				</td>
-				<td>
-					<input type="submit" id="botao" name="botao" value="Alterar">
-				</td>
-				<td>
-					<input type="submit" id="botao" name="botao" value="Excluir">
-				</td>
 				<td>
 					<input type="submit" id="botao" name="botao" value="Listar">
 				</td>
@@ -76,17 +45,17 @@
 			<thead>
 				<tr>
 					<th>codigo</th>
-					<th>Código da Disciplina</th>
+					<th>Código do Conteúdo</th>
 					<th>Descrição</th>
 				</tr>
 			</thead>
 			<tbody>
 				
-				<c:forEach var="d" items="${disciplinas }">
+				<c:forEach var="c" items="${conteudos }">
 					<tr>
-						<td><c:out value="${d.codigo}" /></td>
-						<td><c:out value="${d.disciplinaCodigo}" /></td>
-						<td><c:out value="${d.descricao}" /></td>
+						<td><c:out value="${c.codigo}" /></td>
+						<td><c:out value="${c.disciplinaCodigo}" /></td>
+						<td><c:out value="${c.descricao}" /></td>
 					</tr>
 		
 				</c:forEach>

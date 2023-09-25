@@ -36,6 +36,8 @@ public class AlunoController extends HttpServlet {
 		//entrada
 		String cmd = request.getParameter("botao");
 		String ra = request.getParameter("RA");
+		String cursoCodigo = request.getParameter("cursoCodigo");
+		String turno = request.getParameter("turno");
 		String cpf = request.getParameter("CPF");
 		String nome = request.getParameter("nome");
 		String nomeSocial = request.getParameter("nomeSocial");
@@ -47,10 +49,9 @@ public class AlunoController extends HttpServlet {
 		String instituicaoConclusaoSeg = request.getParameter("instituicaoConclusaoSeg");
 		String pontuacaoVestibular = request.getParameter("pontuacaoVestibular");
 		String posicaoVestibular = request.getParameter("posicaoVestibular");
-		String semestreIngresso = request.getParameter("semestreIngresso");
-		String anoIngresso = request.getParameter("anoIngresso");
-		String semestreLimiteGrad = request.getParameter("semestreLimiteGrad");
-		String anoLimiteGrad = request.getParameter("anoLimiteGrad");
+		String dataIngresso = request.getParameter("dataIngresso");
+		String semestreAnoIngresso = request.getParameter("semestreAnoIngresso");
+		String semestreAnoLimiteGrad = request.getParameter("semestreAnoLimiteGrad");
 		
 		//retorno
 		String saida = "";
@@ -65,8 +66,11 @@ public class AlunoController extends HttpServlet {
 			
 			LocalDate data_nasc = (LocalDate.parse(dataNascimento));
 			LocalDate data_con = (LocalDate.parse(dataConclusaoSeg));
+			LocalDate data_ing = (LocalDate.parse(dataIngresso));
 	
 			al.setRA(Integer.parseInt(ra));
+			al.setCursoCodigo(Integer.parseInt(cursoCodigo));
+			al.setTurno(turno);
 			al.setCPF(cpf);
 			al.setNome(nome);
 			al.setNomeSocial(nomeSocial);
@@ -78,10 +82,9 @@ public class AlunoController extends HttpServlet {
 			al.setInstituicaoConclusaoSeg(instituicaoConclusaoSeg);
 			al.setPontuacaoVestibular(Float.parseFloat(pontuacaoVestibular));
 			al.setPosicaoVestibular(Integer.parseInt(posicaoVestibular));
-			al.setSemestreIngresso(Integer.parseInt(semestreIngresso));
-			al.setAnoIngresso(Integer.parseInt(anoIngresso));
-			al.setSemestreLimiteGrad(Integer.parseInt(semestreLimiteGrad));
-			al.setAnoLimiteGrad(Integer.parseInt(anoLimiteGrad));
+			al.setDataIngresso(data_ing);
+			al.setSemestreAnoIngresso(semestreAnoIngresso);
+			al.setSemestreAnoLimiteGrad(semestreAnoLimiteGrad);
 			
 		}
 			

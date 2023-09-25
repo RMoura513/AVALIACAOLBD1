@@ -20,55 +20,6 @@
 		</p>
 		<table>
 			<tr>
-				<td colspan="3">
-					<input class="input_data" type="number" id="codigo" name="codigo" placeholder="Código"
-					 value='<c:out value="${curso.codigo }"></c:out>'>
-				</td>
-  			<td>
-				<input type="submit" id="botao" name="botao" value="Buscar">
-			</td>
-			</tr>
-			<tr>
-				<td colspan="4">
-					<input class="input_data" type="number" id="alunoRA" name="alunoRA" placeholder="RA do Aluno"
-					 value='<c:out value="${curso.alunoRA }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4">
-					<input class="input_data" type="text" id="nome" name="nome" placeholder="Nome"
-					 value='<c:out value="${curso.nome }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4">
-					<input class="input_data" type="number" id="cargaHoraria" name="cargaHoraria" placeholder="Carga Horária"
-					value='<c:out value="${curso.cargaHoraria }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4">
-					<input class="input_data" type="text" id="siglaInterna" name="siglaInterna" placeholder="Sigla Interna"
-					value='<c:out value="${curso.siglaInterna }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4">
-					<input class="input_data" type="number" id="ultimaNotaEnade" name="ultimaNotaEnade" 
-					placeholder="Última nota do Enade"
-					value='<c:out value="${curso.ultimaNotaEnade }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="submit" id="botao" name="botao" value="Cadastrar">
-				</td>
-				<td>
-					<input type="submit" id="botao" name="botao" value="Alterar">
-				</td>
-				<td>
-					<input type="submit" id="botao" name="botao" value="Excluir">
-				</td>
 				<td>
 					<input type="submit" id="botao" name="botao" value="Listar">
 				</td>
@@ -94,7 +45,6 @@
 			<thead>
 				<tr>
 					<th>Código</th>
-					<th>RA do Aluno</th>
 					<th>Nome</th>
 					<th>Carga Horária</th>
 					<th>Sigla Interna</th>
@@ -106,7 +56,6 @@
 				<c:forEach var="c" items="${cursos }">
 					<tr>
 						<td><c:out value="${c.codigo}" /></td>
-						<td><c:out value="${c.AlunoRA}" /></td>
 						<td><c:out value="${c.nome}" /></td>
 						<td><c:out value="${c.cargaHoraria}" /></td>
 						<td><c:out value="${c.siglaInterna}" /></td>

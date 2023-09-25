@@ -3,26 +3,19 @@ package model;
 public class Curso {
 
 	private int codigo;
-	private int alunoRa;
 	private String nome;
 	private int cargaHoraria;
 	private String siglaInterna;
 	private int ultimaNotaEnade;
 
+	
+	
 	public int getCodigo() {
 		return codigo;
 	}
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
-	}
-
-	public int getAlunoRa() {
-		return alunoRa;
-	}
-
-	public void setAlunoRa(int alunoRa) {
-		this.alunoRa = alunoRa;
 	}
 
 	public String getNome() {
@@ -59,7 +52,7 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Curso [codigo=" + codigo + ", alunoRa=" + alunoRa + ", nome=" + nome + ", cargaHoraria=" + cargaHoraria
+		return "Curso [codigo=" + codigo + ", nome=" + nome + ", cargaHoraria=" + cargaHoraria
 				+ ", siglaInterna=" + siglaInterna + ", ultimaNotaEnade=" + ultimaNotaEnade + "]";
 	}
 

@@ -2,43 +2,29 @@ package model;
 
 public class Matricula {
 
+	private int c;
 	private int codigo;
-	private int alunoRa;
-	private int semestre;
-	private int ano;
+	private int alunoRA;
+	private int cursoCodigo;
+	private int disciplinaCodigo;
 	private String situacao;
-	private String turno;
+	private String diaSemana;
+	private int horarioCodigo;
 
-	public int getCodigo() {
-		return codigo;
+	public int getHorarioCodigo() {
+		return horarioCodigo;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setHorarioCodigo(int horarioCodigo) {
+		this.horarioCodigo = horarioCodigo;
 	}
 
-	public int getAlunoRa() {
-		return alunoRa;
+	public String getDiaSemana() {
+		return diaSemana;
 	}
 
-	public void setAlunoRa(int alunoRa) {
-		this.alunoRa = alunoRa;
-	}
-
-	public int getSemestre() {
-		return semestre;
-	}
-
-	public void setSemestre(int semestre) {
-		this.semestre = semestre;
-	}
-
-	public int getAno() {
-		return ano;
-	}
-
-	public void setAno(int ano) {
-		this.ano = ano;
+	public void setDiaSemana(String diaSemana) {
+		this.diaSemana = diaSemana;
 	}
 
 	public String getSituacao() {
@@ -49,18 +35,55 @@ public class Matricula {
 		this.situacao = situacao;
 	}
 
-	public String getTurno() {
-		return turno;
+	public int getC() {
+		return c;
 	}
 
-	public void setTurno(String turno) {
-		this.turno = turno;
+	public void setC(int c) {
+		this.c = c;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public int getAlunoRA() {
+		return alunoRA;
+	}
+
+	public void setAlunoRA(int alunoRA) {
+		this.alunoRA = alunoRA;
+	}
+
+	public int getCursoCodigo() {
+		return cursoCodigo;
+	}
+
+	public void setCursoCodigo(int cursoCodigo) {
+		this.cursoCodigo = cursoCodigo;
+	}
+
+	public int getDisciplinaCodigo() {
+		return disciplinaCodigo;
+	}
+
+	public void setDisciplinaCodigo(int disciplinaCodigo) {
+		this.disciplinaCodigo = disciplinaCodigo;
 	}
 
 	@Override
 	public String toString() {
-		return "Matricula [codigo=" + codigo + ", alunoRa=" + alunoRa + ", semestre=" + semestre + ", ano=" + ano
-				+ ", situacao=" + situacao + ", turno=" + turno + "]";
+		return "Matricula [c=" + c + ", codigo=" + codigo + ", alunoRA=" + alunoRA + ", cursoCodigo=" + cursoCodigo
+				+ ", disciplinaCodigo=" + disciplinaCodigo + ", situacao=" + situacao + ", diaSemana=" + diaSemana
+				+ ", horarioCodigo=" + horarioCodigo + ", getHorarioCodigo()=" + getHorarioCodigo()
+				+ ", getDiaSemana()=" + getDiaSemana() + ", getSituacao()=" + getSituacao() + ", getC()=" + getC()
+				+ ", getCodigo()=" + getCodigo() + ", getAlunoRA()=" + getAlunoRA() + ", getCursoCodigo()="
+				+ getCursoCodigo() + ", getDisciplinaCodigo()=" + getDisciplinaCodigo() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
 }

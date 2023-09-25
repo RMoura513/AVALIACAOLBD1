@@ -20,42 +20,6 @@
 		</p>
 		<table>
 			<tr>
-				<td colspan="3">
-					<input class="input_data" type="number" id="codigo" name="codigo" placeholder="Código"
-					 value='<c:out value="${horario.codigo }"></c:out>'>
-				</td>
-  			<td>
-				<input type="submit" id="botao" name="botao" value="Buscar">
-			</td>
-			</tr>
-			<tr>
-				<td colspan="4">
-					<input class="input_data" type="number" id="horaInicio" name="horaInicio" placeholder="Hora de Início"
-					 value='<c:out value="${horario.horaInicio }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4">
-					<input class="input_data" type="number" id="horaFim" name="horaFim" placeholder="Hora de Término"
-					 value='<c:out value="${horario.horaFim }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4">
-					<input class="input_data" type="number" id="qtdAula" name="qtdAula" placeholder="Quantidade de Aulas"
-					value='<c:out value="${horario.qtdAula }"></c:out>'>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="submit" id="botao" name="botao" value="Cadastrar">
-				</td>
-				<td>
-					<input type="submit" id="botao" name="botao" value="Alterar">
-				</td>
-				<td>
-					<input type="submit" id="botao" name="botao" value="Excluir">
-				</td>
 				<td>
 					<input type="submit" id="botao" name="botao" value="Listar">
 				</td>
